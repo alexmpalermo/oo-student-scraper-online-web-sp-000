@@ -31,8 +31,13 @@ class Scraper
     }
     
     social = []
+<<<<<<< HEAD
     doc.css("div.social-icon-container a").each do |icon|
        social << icon.attribute("href").value
+=======
+    doc.css("div.social-icon-container").each_with_index do |icon, index|
+       social << icon.search("a")[index]["href"]
+>>>>>>> 8ba074d6b6c4debae90ce1b474efb4de11963810
      end 
     social.each do |app_url|
       if app_url.include?("twitter")
@@ -42,7 +47,10 @@ class Scraper
       elsif app_url.include?("github")
         student_profile[:github] = app_url
       elsif app_url.include?("youtube")
+<<<<<<< HEAD
     else 
+=======
+>>>>>>> 8ba074d6b6c4debae90ce1b474efb4de11963810
         student_profile[:blog] = app_url  
     end
   end
